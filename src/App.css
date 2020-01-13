@@ -1,0 +1,12 @@
+
+.site {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    grid-template-rows: 80px minmax(900px, auto);
+    grid-template-areas: 'wrap wrap' 'menu contain';
+}
+
+.containerSite {
+    grid-area: contain;
+    background: #edeef0;
+}

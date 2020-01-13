@@ -1,0 +1,9 @@
+.post img{
+    height: 50px;
+    width: 50px;
+    border-radius:30px;
+    margin:10px;
+}
+.post p{
+    display:inline;
+}

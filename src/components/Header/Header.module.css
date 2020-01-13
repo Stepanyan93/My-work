@@ -1,0 +1,31 @@
+.header{
+    grid-area: wrap;
+    background: #4267b2;
+
+}
+.container{
+    display: grid;
+    grid-template-columns: 10fr 2fr;
+}
+.containerItem{
+    padding-top: 25px;
+    display: grid;
+    grid-template-columns: auto 3fr;
+}
+.containerLogin{
+    display: grid;
+    grid-template-columns: 100px 200px;
+}
+.userPhoto{
+    width: 50px;
+    height: 50px;
+    margin-right:20px;
+    border-radius: 25px;
+}
+
+.userNameText{
+    color:white;
+    font-weight: bold;
+    display: inline-block;
+
+}
