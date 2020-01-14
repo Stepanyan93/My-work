@@ -92,9 +92,6 @@ export const getUsers = (currentPage, pageUsersCount) => async (dispatch) => {
     dispatch(setUsers(data.items));
     dispatch(totalUsersCount(data.totalCount));
 
-
-
-
 };
 export const follow = (UserId) => async (dispatch) => {
     dispatch(toggleFollowingProcess(true, UserId));

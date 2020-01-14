@@ -6,11 +6,16 @@ import {NavLink} from "react-router-dom";
 import PaginationApp from "../common/Pagination/Pagination";
 
 const Users = (props) => {
+    let PaginationHoc = (pageCount,UsersCount,isFetching,pageChanged) => {
+        return (
+            <PaginationApp usersCount={UsersCount} pageUsersCount={pageCount} onPgaeChanged={pageChanged} isFetching={isFetching} />
+        )
+    };
     return (
         <div>
             <div className={s.pagination}>
                 <div className={s.paginationItem}>
-                    <PaginationApp usersCount={props.usersCount} pageUsersCount={props.pageUsersCount} currentPage={props.currentPage} onPgaeChanged={props.onPgaeChanged}  />
+                    {PaginationHoc(props.pageUsersCount,props.usersCount,props.isFetching,props.onPgaeChanged)}
                 </div>
             </div>
             <div className={s.container}>

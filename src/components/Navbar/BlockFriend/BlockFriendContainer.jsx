@@ -2,16 +2,19 @@ import React from 'react';
 import {connect} from "react-redux";
 import BlockFriend from "./BlockFriend";
 import {compose} from "redux";
-import {getUsers} from "../../../redux/users_reduser";
+import {setFriendsThunkCreator} from "../../../redux/navbar_reduser";
 
 
 class BlockFriendContainer extends React.Component{
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageUsersCount)
+            this.props.setFriendsThunkCreator(this.props.currentPage,this.props.pageFriendsCount);
     }
+    onPageChanged = (pageNumber) => {
+        this.props.setFriendsThunkCreator(pageNumber,this.props.pageFriendsCount);
+    };
     render(){
         return(
-            <BlockFriend setUserIsFollowed={this.props.setUserIsFollowed} navBarPage={this.props.navBarPage} isAuth={this.props.isAuth}/>
+            <BlockFriend isFetching={this.props.isFetching} pageFriendsCount={this.props.pageFriendsCount} getFriends={this.props.getFriends} isAuth={this.props.isAuth} friendsCount={this.props.friendsCount} onPageChanged={this.onPageChanged}/>
             )
     }
 }
@@ -20,14 +23,15 @@ const mapStateToProps = (state) => {
 
     return{
         isAuth: state.auth.isAuth,
-        navBarPage: state.navBarPage,
-        setUserIsFollowed:state.usersPage.users,
-        currentPage:state.usersPage.currentPage,
-        pageUsersCount:state.usersPage.pageUsersCount
+        getFriends:state.navBarPage.friendsData,
+        pageFriendsCount:state.navBarPage.pageFriendsCount,
+        friendsCount:state.navBarPage.friendsCount,
+        currentPage:state.navBarPage.currentPage,
+        isFetching:state.navBarPage.isFetching
     }
 };
 
 
 export default compose(
-    connect(mapStateToProps,{getUsers})
+    connect(mapStateToProps,{setFriendsThunkCreator})
 )(BlockFriendContainer);

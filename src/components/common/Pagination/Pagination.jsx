@@ -42,7 +42,7 @@ class PaginationApp extends React.Component {
         );
     }
 }
-
+export default PaginationApp;
 // const Pagination = (props) => {
 //     let pagesCount = Math.ceil(props.usersCount / props.pageUsersCount);
 //     let pages = [];
@@ -65,4 +65,3 @@ class PaginationApp extends React.Component {
 //             </div>
 //     )
 // };
-export default PaginationApp;
